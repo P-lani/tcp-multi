@@ -27,8 +27,9 @@ class Game {
         const locationData = this.users
             .filter((user) => user.id !== userId)
             .map((user) => {
-                return { id: user.id, player: user.playerId, x: user.x, y: user.y };
+                return { id: user.id, playerId: user.playerId, x: user.x, y: user.y };
             });
+
         return createLocationPacket(locationData);
     }
 }

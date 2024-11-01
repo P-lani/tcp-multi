@@ -1,11 +1,6 @@
 import User from '../../classes/models/user.class.js';
 import { HANDLER_IDS, RESPONSE_SUCCESS_CODE } from '../../constants/handlerIds.js';
-import {
-    createUser,
-    findUserByDeviceId,
-    updateUserLocation,
-    updateUserLogin,
-} from '../../db/user/user.db.js';
+import { createUser, findUserByDeviceId, updateUserLogin } from '../../db/user/user.db.js';
 import { getGameSession } from '../../sessions/game.session.js';
 import { addUser } from '../../sessions/user.session.js';
 import { createResponse } from '../../utils/response/createResponse.js';
@@ -40,6 +35,7 @@ const userHandler = async ({ socket, userId, payload }) => {
             x: user.x,
             y: user.y,
         });
+
         socket.write(initialResponse);
     } catch (e) {
         console.error(e);
